@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d22065a1a2afb499",
+        "id": "a0365209da087735",
         "type": "tabs",
         "children": [
           {
-            "id": "8cf65307705dcec1",
+            "id": "d0f1f0a65b765614",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 414.5
   },
   "right": {
     "id": "793aa2f35c146d97",
@@ -176,14 +176,36 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "e387776fc32ba3d3",
+  "active": "d0f1f0a65b765614",
   "lastOpenFiles": [
-    "wiki/README.md",
-    "wiki/AGENTS.md",
+    "wiki/personas/c1-han-jeonghoon.md",
+    "wiki/personas/a2-jung-subin.md",
+    "wiki/sources/00-prd-v1.md",
+    "wiki/index.md",
+    "wiki/log.md",
+    "wiki/synthesis.md",
+    "wiki/sources/10-jtbd-interview-report.md",
+    "wiki/sources/09-aos-dos-analysis.md",
+    "wiki/sources/08-customer-journey-map.md",
+    "wiki/sources/07-persona-spectrum.md",
+    "wiki/sources/06-tam-sam-som.md",
+    "wiki/sources/05-problem-definition.md",
+    "wiki/sources/04-ksf-report.md",
+    "wiki/sources/03-value-chain.md",
+    "wiki/sources/02-competitors-analysis.md",
+    "wiki/sources/01-porters-five-forces.md",
+    "wiki/sources/06-value-proposition-sheet.md",
+    "wiki/sources/05-srs-v1.md",
+    "wiki/entities/market-segments.md",
+    "wiki/entities/tech-stack.md",
+    "wiki/entities/product-HFF-Hub.md",
+    "wiki/competitors/big-tech-channels.md",
+    "wiki/competitors/pharmacist-youtubers.md",
+    "wiki/competitors/pillyze.md",
+    "wiki/competitors/enuri.md",
+    "wiki/features/f4-data-trust.md",
     "wiki/competitors",
     "wiki/features",
-    "wiki/personas",
-    "llm-wiki.ko.md",
-    "llm-wiki.md"
+    "wiki/personas"
   ]
 }

@@ -8,7 +8,7 @@
 
 ## 1. 도메인 한 줄
 
-본 프로젝트의 지식 베이스는 **국내 건강기능식품 성분·가격 비교 플랫폼(코드명 Super-Calc)** MVP를 둘러싼 시장·고객·제품·기술 정보를 누적·정제합니다.
+본 프로젝트의 지식 베이스는 **국내 건강기능식품 성분·가격 비교 플랫폼(코드명 HFF-Hub)** Health Functional Food Hub, MVP를 둘러싼 시장·고객·제품·기술 정보를 누적·정제합니다.
 
 엘리베이터 피치: *"수동 엑셀 계산과 뒷광고 필터링에 지친 건기식 소비자들을 위한, 리얼-타임 1일 단가 계산 및 의학 팩트체크 플랫폼."*
 
@@ -53,7 +53,7 @@ hff-hub-workbase/
 
 - 영소문자, 단어 사이는 `-` (kebab-case).
 - 페르소나는 `personas/<id>-<roman-name>.md` (예: `c1-han-jeonghoon.md`).
-- 기능은 `features/f<번호>-<slug>.md` (예: `f1-super-calc-engine.md`).
+- 기능은 `features/f<번호>-<slug>.md` (예: `f1-HFF-Hub-engine.md`).
 - 소스 요약은 원본 파일명을 단순 슬러그로 변환 (예: `sources/01-porters-five-forces.md`).
 
 ### 3.2 프론트매터(YAML)

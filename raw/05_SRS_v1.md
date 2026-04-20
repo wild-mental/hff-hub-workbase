@@ -7,7 +7,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| **프로젝트명** | 건기식 성분·가격 비교 초자동화 플랫폼 (Super-Calc MVP) |
+| **프로젝트명** | 건기식 성분·가격 비교 초자동화 플랫폼 (HFF-Hub MVP) |
 | **기반 문서** | PRD v1.0 (2026-04-11) |
 | **작성 기준** | ISO/IEC/IEEE 29148:2018 |
 | **Owner** | Product & Engineering |
@@ -18,7 +18,7 @@
 
 ### 1.1 Purpose
 
-본 SRS는 **건강기능식품 성분·가격 비교 초자동화 플랫폼**(이하 "시스템")의 소프트웨어 요구사항을 정의한다.
+본 SRS는 **건강기능식품 성분·가격 비교 초자동화 플랫폼 Health Functional Food Hub**(이하 "시스템")의 소프트웨어 요구사항을 정의한다.
 
 국내 건강기능식품 시장(연 6조 원)은 OEM/ODM 발달로 수천 개 브랜드가 기능적 변별력 없이 공급 과잉·정보 혼돈 상태에 있다. 소비자는 채널 간 단가 비교에 건당 60분 이상을 소요하며(CORE-1), 성분 비교 어려움 47.2%(CORE-2), 가격-품질 오인율 41.3%(CORE-3), 탐색 후 결론 실패 비율 40% 이상(CORE-4)의 문제를 겪고 있다.
 
@@ -121,7 +121,7 @@
 | **건강기능식품공전** | 식품의약품안전처에서 고시하는 건강기능식품의 기준 및 규격 원문 |
 | **뱃지 (Badge)** | 식약처 건강기능식품공전 기반 기능성 인정 상태를 시각적으로 표시하는 라벨 (APPROVED / CAUTION / NOT_APPROVED) |
 | **Anti-BS Dashboard** | 마케팅 콘텐츠를 원천 차단하고 식약처/논문 근거만으로 구성된 팩트체크 대시보드 |
-| **Super-Calc Engine** | 쿠팡 파트너스 기반 실시간 1일 단가 정규화 및 비교 엔진 |
+| **HFF-Hub Engine** | 쿠팡 파트너스 기반 실시간 1일 단가 정규화 및 비교 엔진 |
 | **Viral Engine** | 카카오톡 1-Tap 팩트 공유 카드 생성·전송 시스템 |
 | **Data Trust System** | 원본 라벨 아카이브, 출처 투명 공개, 오류 제보 리워드 시스템 |
 | **페르소나 (Persona)** | 특정 사용자 유형을 대표하는 가상의 인물 모델 |
@@ -218,18 +218,18 @@
 | **쿠팡 파트너스 API** | 외부 (REST) | 키워드, 카테고리 | 가격(KRW), 딥링크 URL, 제품 메타 | Rate Limit: 일 10,000건, 수수료: 3% |
 | **식약처 건강기능식품 공공 데이터** | 외부 (공공 API) | 원료명, 인증번호 | 기능성 인정 내용, 일일 섭취량, 주의사항 | 갱신 주기: 월 1회 |
 | **카카오 Link API** | 외부 (JS SDK) | 컨텐츠(OG title, desc), 딥링크 | 카카오톡 공유 메시지 | 일 발송 제한 확인 필요 |
-| **Super-Calc API** | Route Handler (`/api/v1/compare`) | 성분명 | PRICE_SNAPSHOT 배열 (1일 단가 정렬) | 응답 <= 3.5초 (p95) |
+| **HFF-Hub API** | Route Handler (`/api/v1/compare`) | 성분명 | PRICE_SNAPSHOT 배열 (1일 단가 정렬) | 응답 <= 3.5초 (p95) |
 | **Badge API** | Route Handler (`/api/v1/badges`) | product_id | BADGE 배열 | 캐시 TTL: 24시간 |
 
 ### 3.4 Interaction Sequences (핵심 시퀀스 다이어그램)
 
-#### 3.4.1 핵심 흐름: 1일 단가 비교 (F1 Super-Calc Engine)
+#### 3.4.1 핵심 흐름: 1일 단가 비교 (F1 HFF-Hub Engine)
 
 ```mermaid
 sequenceDiagram
     actor User as 사용자 (C1)
     participant Web as 모바일 웹 앱
-    participant API as Super-Calc API
+    participant API as HFF-Hub API
     participant Coupang as 쿠팡 파트너스 API
     participant DB as 제품/가격 DB
 
@@ -407,7 +407,7 @@ flowchart TB
             KV["KakaoTalk WebView\n공유 카드 랜딩"]
             
             subgraph RouteHandlers ["Route Handlers (/app/api/v1/)"]
-                SC["Super-Calc Module\n/compare (단가 비교)"]
+                SC["HFF-Hub Module\n/compare (단가 비교)"]
                 BE["Badge Module\n/badges (뱃지 판정)"]
                 SS["Search Module\n/search (동적 검색)"]
             end
@@ -473,7 +473,7 @@ flowchart TB
 | 컴포넌트 | 유형 | 책임 | SLA / 제약 |
 |---|---|---|---|
 | **Next.js App** | 풀스택 앱 | Vercel (단일 배포) SSR/CSR 통합, 라우팅, 인증 | LCP <= 2,500ms |
-| **Super-Calc Module** | Route Handler | 쿠팡 파트너스 단일 채널 가격 조회, 1일 단가 정규화 | p95 <= 3,500ms |
+| **HFF-Hub Module** | Route Handler | 쿠팡 파트너스 단일 채널 가격 조회, 1일 단가 정규화 | p95 <= 3,500ms |
 | **Badge Module** | Route Handler | 식약처 공전 기반 뱃지 판정, 일상어 번역 | p95 <= 1,000ms |
 | **Search Module** | Route Handler | 성분/제품 검색, 자동완성 | p95 <= 1,000ms |
 | **Report Module** | Server Action | 오류 제보 접수, 스팸 필터링, Prisma CRUD | p95 <= 3,000ms |
@@ -492,7 +492,7 @@ flowchart TB
 
 > **범례:** Priority — M(Must), S(Should), C(Could), W(Won't)
 
-#### 4.1.1 F1. Super-Calc Engine — 실시간 1일 단가 정규화 엔진
+#### 4.1.1 F1. HFF-Hub Engine — 실시간 1일 단가 정규화 엔진
 
 | ID | 요구사항 | Priority | Source | Acceptance Criteria |
 |---|---|---|---|---|
@@ -630,8 +630,8 @@ flowchart TB
 
 | Story / Feature | Requirement ID | Test Case ID | Priority |
 |---|---|---|---|
-| Story 1 (C1, Super-Calc) | REQ-FUNC-001 | TC-FUNC-001 | M |
-| Story 1 (C1, Super-Calc) | REQ-FUNC-002 | TC-FUNC-002 | M |
+| Story 1 (C1, HFF-Hub) | REQ-FUNC-001 | TC-FUNC-001 | M |
+| Story 1 (C1, HFF-Hub) | REQ-FUNC-002 | TC-FUNC-002 | M |
 | Story 1 AC3 | REQ-FUNC-004 | TC-FUNC-004 | M |
 | Story 1 AC1 | REQ-FUNC-005 | TC-FUNC-005 | M |
 | Story 1 AC1 | REQ-FUNC-006 | TC-FUNC-006 | M |
@@ -714,7 +714,7 @@ flowchart TB
 
 | # | API | Endpoint | HTTP Method | 입력 파라미터 | 출력 | 구현 주체 | 비고 |
 |---|---|---|---|---|---|---|---|
-| INT-API-01 | Super-Calc API | `GET /api/v1/compare` | GET | `ingredient`, `dosage` | `PRICE_SNAPSHOT[]` (1일 단가 정렬) | Route Handler | 쿠팡 파트너스 단일 조회 |
+| INT-API-01 | HFF-Hub API | `GET /api/v1/compare` | GET | `ingredient`, `dosage` | `PRICE_SNAPSHOT[]` (1일 단가 정렬) | Route Handler | 쿠팡 파트너스 단일 조회 |
 | INT-API-02 | Badge API | `GET /api/v1/badges` | GET | `product_id` | `BADGE[]` + 일상어 번역 | Route Handler | 캐시 TTL: 24시간 |
 | INT-API-03 | 제품 검색 | `GET /api/v1/search` | GET | `query`, `category` | 제품 목록 | Route Handler | 서버 컴포넌트 직접 호출 가능 |
 | INT-API-04 | 오류 제보 | `(Server Action)` | POST | `FormData` | 접수 상태 | Server Action | 스팸 필터링 포함 |
@@ -1062,7 +1062,7 @@ sequenceDiagram
     participant Web as 모바일 웹 앱
     participant Auth as 인증 서비스
     participant Search as Search Route Handler
-    participant Calc as Super-Calc Route Handler
+    participant Calc as HFF-Hub Route Handler
     participant Coupang as 쿠팡 파트너스 API
     participant DB as Supabase DB
     participant Analytics as Vercel Analytics / Mixpanel
@@ -1288,7 +1288,7 @@ sequenceDiagram
 
 | 실험 ID | 가설 | 측정 KPI | 성공 기준 | 연결 REQ |
 |---|---|---|---|---|
-| H1 | C1은 Super-Calc이 수동 계산보다 빠르고 정확하다고 느낀다 | 완료 시간(초), 오차율(%), 만족도(5점) | 시간 90% 단축, 오차 <= 3%, 만족도 >= 4.0 | REQ-FUNC-001~009, REQ-NF-001 |
+| H1 | C1은 HFF-Hub이 수동 계산보다 빠르고 정확하다고 느낀다 | 완료 시간(초), 오차율(%), 만족도(5점) | 시간 90% 단축, 오차 <= 3%, 만족도 >= 4.0 | REQ-FUNC-001~009, REQ-NF-001 |
 | H2 | C2/A2는 Anti-BS Dashboard로 더 높은 신뢰감을 느낀다 (n=70, power >= 0.80) | 결정 시간(분), 확신도(5점), 동의율(%) | p50 결정 시간 <= 30분, 확신도 >= 4.0 (+1.0점 이상), 동의율 >= 70% | REQ-FUNC-010~015, REQ-NF-002 |
 | H3 | 카카오 공유 수신자의 일정 비율이 구매 링크를 클릭한다 (n=200) | 랜딩률(%), 클릭률(%), K-Factor | 랜딩률 >= 50%, 클릭률 >= 8%, K-Factor >= 1.1 | REQ-FUNC-016~021, REQ-NF-003 |
 | H4 | 오류 제보 48h SLA가 E2의 신뢰도를 유의미하게 높인다 (n=30) | 수정 완료율(%), 만족도(5점), D30 리텐션 | 완료율 >= 90%, 만족도 >= 4.0, D30 >= 25% | REQ-FUNC-022~028, REQ-NF-012 |
