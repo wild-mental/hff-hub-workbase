@@ -54,6 +54,14 @@ tags: [#meta, #log]
 - 분리 출시 시 [`concepts/aos-dos-framework.md`](concepts/aos-dos-framework.md) Top 5 Pain 중 일부만 풀려 [`concepts/value-proposition.md`](concepts/value-proposition.md)가 깨짐 → 동시 출시 결정.
 - 첫 6주 로드맵은 [`synthesis.md`](synthesis.md) 참조.
 
+## [2026-04-20] query | 위키 구성 내용 종합 슬라이드 제작
+
+- 질문: "재료(raw 13건)와 결과물(위키 49 페이지)을 종합 소개하는 슬라이드를 만들어줘."
+- 결과: `slides/llm-wiki-overview.md` 생성 — Obsidian Marp Slides 문법 기반 25장 프레젠테이션.
+- 구성: Why(1) → Raw Materials(2) → Schema(3) → Results(4) → Workflow(5) → Synthesis(6) + 부록.
+- 참고 패턴: https://samuele-cozzi.github.io/obsidian-marp-slides/
+- 환원: 본 위키 설명 자체가 자기 참조 콘텐츠가 되어 신규 진입자 온보딩에 활용 가능.
+
 ---
 
 ## 다음 단계 (다음 ingest/query/lint 후보)

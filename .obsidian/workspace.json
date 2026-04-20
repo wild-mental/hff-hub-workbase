@@ -4,17 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "a0365209da087735",
+        "id": "d34b6a67a44e6d5a",
         "type": "tabs",
         "children": [
           {
-            "id": "d0f1f0a65b765614",
+            "id": "d72c925771a78037",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "markdown",
+              "state": {
+                "file": "slides/llm-wiki-overview.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "llm-wiki-overview"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2b27e862e8928a17",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c3e1067e2c8903b1",
+            "type": "leaf",
+            "state": {
+              "type": "marp-preview-view",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "그래프 뷰"
+              "icon": "lucide-file",
+              "title": "Deck Preview"
             }
           }
         ]
@@ -90,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "slides/llm-wiki-overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "백링크"
+              "title": "llm-wiki-overview 의 백링크"
             }
           },
           {
@@ -108,11 +129,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "slides/llm-wiki-overview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "나가는 링크"
+              "title": "llm-wiki-overview 의 나가는 링크"
             }
           },
           {
@@ -150,12 +172,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "slides/llm-wiki-overview.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "개요"
+              "title": "llm-wiki-overview 의 개요"
             }
           }
         ]
@@ -173,11 +196,18 @@
       "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
-      "bases:새 베이스 생성하기": false
+      "bases:새 베이스 생성하기": false,
+      "marp-slides:Show Slide Preview": false
     }
   },
-  "active": "d0f1f0a65b765614",
+  "active": "c3e1067e2c8903b1",
   "lastOpenFiles": [
+    "slides/llm-wiki-overview.pdf",
+    "slides/llm-wiki-overview.md",
+    "slides/llm-wiki-overview.html",
+    "slides/README.md",
+    "slides/README.html",
+    "slides",
     "wiki/personas/c1-han-jeonghoon.md",
     "wiki/personas/a2-jung-subin.md",
     "wiki/sources/00-prd-v1.md",
@@ -198,12 +228,9 @@
     "wiki/sources/05-srs-v1.md",
     "wiki/entities/market-segments.md",
     "wiki/entities/tech-stack.md",
-    "wiki/entities/product-HFF-Hub.md",
+    "wiki/entities/product-super-calc.md",
     "wiki/competitors/big-tech-channels.md",
     "wiki/competitors/pharmacist-youtubers.md",
-    "wiki/competitors/pillyze.md",
-    "wiki/competitors/enuri.md",
-    "wiki/features/f4-data-trust.md",
     "wiki/competitors",
     "wiki/features",
     "wiki/personas"
